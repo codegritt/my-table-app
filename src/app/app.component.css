@@ -1,4 +1,7 @@
 p {
     font-family: Lato;
-    background-color: grey;
+  }
+  
+  .clickable {
+    cursor: pointer;
   }

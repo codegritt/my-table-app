@@ -6,23 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  name = 'Angular 5';
-  secondaryTable = [];
-  Table = [
-    {
-      id: 151,
-      name: 'Alan B. Shepard, Jr.',
-      job: 'Astronaut',
-      year_joined: 1959,
-      missions: ['MR-3', 'Apollo 14']
-    },
-    {
-      id: 152,
-      name: 'Virgil I. Grissom',
-      job: 'Astronaut',
-      year_joined: 1959,
-      missions: ['MR-4', 'Apollo 1']
-    },
+  astronautsToBeSelected = [
     {
       id: 153,
       name: 'John H. Glenn, Jr.',
@@ -38,13 +22,39 @@ export class AppComponent {
       missions: ['MA-7']
     }
   ];
-  addToAnotherTable(ind) {
-    var index = this.secondaryTable.indexOf(ind);
-    if (index > -1) {
-      this.secondaryTable.splice(index, 1);
+
+  astronautsSelected = [
+    {
+      id: 153,
+      name: 'John H. Glenn, Jr.',
+      job: 'Astronaut',
+      year_joined: 1959,
+      missions: ['MA-6', 'STS-95']
+    },
+    {
+      id: 154,
+      name: 'M. Scott Carpenter',
+      job: 'Astronaut',
+      year_joined: 1959,
+      missions: ['MA-7']
     }
-    else{
-      this.secondaryTable.push(ind);
-    }
+  ];
+
+  /**
+   * This method is called when a row is clicked in First table
+   * It just moves astronauts from one table to the other!
+   */
+  selectAstronaut(astronaut) {
+    // Splice returns an array, hence ... is used, it destructures the array
+    this.astronautsSelected.push(...this.astronautsToBeSelected.splice(this.astronautsToBeSelected.indexOf(astronaut), 1));
+  }
+
+/**
+ * This method is called when a row is clicked in the Second Table
+ * It moves astronaut back to first table
+ */
+  deselectAstronaut(astronaut) {
+    // Splice returns an array, hence ... is used, it destructures the array
+    this.astronautsToBeSelected.push(...this.astronautsSelected.splice(this.astronautsSelected.indexOf(astronaut), 1));
   }
 }

@@ -1,58 +1,49 @@
-<table class="table">
+<h3>Astronauts to be Selected</h3>
+
+<table class="table table-striped table-hover">
 	<thead>
 		<tr>
+			<th>ID</th>
 			<th>Name</th>
 			<th>Job</th>
-			<th>Year Joined</th>
-			<th>Mission</th>
+			<th>YearJoined</th>
+			<th>Missions</th>
+		</tr>
 	</thead>
-
-	<tr *ngFor="let data of Table;let i = index" (click)=addToAnotherTable(i)>
-
-		<td>
-			<span>{{data.name}}</span>
-		</td>
-		<td>
-			<span>{{data.job}}</span>
-		</td>
-		<td>
-			<span>{{data.year_joined}}</span>
-		</td>
-		<td>
+	<tbody>
+		<tr *ngFor="let astronaut of astronautsToBeSelected" class="clickable">
+			<td (click)="selectAstronaut(astronaut)">{{astronaut.id}}</td>
+			<td (click)="selectAstronaut(astronaut)">{{astronaut.name}}</td>
+			<td (click)="selectAstronaut(astronaut)">{{astronaut.job}}</td>
+			<td (click)="selectAstronaut(astronaut)">{{astronaut.year_joined}}</td>
 			<select>
-             <option *ngFor="let mission of data.missions">
-                {{mission}}
-             </option>
-          </select>
-		</td>
-	</tr>
+			<option *ngFor="let mission of astronaut.missions" [selected]="mission.name == 'back'">{{mission}} </option>
+			</select>
+		</tr>
+	</tbody>
 </table>
 
-<table class="table">
+<h3>Astronauts Selected</h3>
+
+<table class="table table-striped table-hover">
 	<thead>
 		<tr>
+			<th>ID</th>
 			<th>Name</th>
 			<th>Job</th>
-			<th>Year Joined</th>
-			<th>Mission</th>
+			<th>YearJoined</th>
+			<th>Missions</th>
+		</tr>
 	</thead>
-
-	<tr *ngFor="let data of secondaryTable">
-		<td>
-			<span>{{Table[data].name}}</span>
-		</td>
-		<td>
-			<span>{{Table[data].job}}</span>
-		</td>
-		<td>
-			<span>{{Table[data].year_joined}}</span>
-		</td>
-		<td>
+	<tbody>
+		<tr *ngFor="let astronaut of astronautsSelected" class="clickable">
+			<td (click)="deselectAstronaut(astronaut)">{{astronaut.id}}</td>
+			<td (click)="deselectAstronaut(astronaut)">{{astronaut.name}}</td>
+			<td (click)="deselectAstronaut(astronaut)">{{astronaut.job}}</td>
+			<td (click)="deselectAstronaut(astronaut)">{{astronaut.year_joined}}</td>
 			<select>
-            <option *ngFor="let mission of Table[data].missions">
-             {{mission}}
-            </option>
-          </select>
-		</td>
-	</tr>
+			<option *ngFor="let mission of astronaut.missions" [selected]="mission.name == 'back'">{{mission}} </option>
+			</select>
+		</tr>
+	</tbody>
 </table>
