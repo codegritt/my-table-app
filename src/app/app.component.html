@@ -16,9 +16,7 @@
 			<td (click)="selectAstronaut(astronaut)">{{astronaut.name}}</td>
 			<td (click)="selectAstronaut(astronaut)">{{astronaut.job}}</td>
 			<td (click)="selectAstronaut(astronaut)">{{astronaut.year_joined}}</td>
-			<select>
-			<option *ngFor="let mission of astronaut.missions" [selected]="mission.name == 'back'">{{mission}} </option>
-			</select>
+			
 		</tr>
 	</tbody>
 </table>
@@ -41,9 +39,7 @@
 			<td (click)="deselectAstronaut(astronaut)">{{astronaut.name}}</td>
 			<td (click)="deselectAstronaut(astronaut)">{{astronaut.job}}</td>
 			<td (click)="deselectAstronaut(astronaut)">{{astronaut.year_joined}}</td>
-			<select>
-			<option *ngFor="let mission of astronaut.missions" [selected]="mission.name == 'back'">{{mission}} </option>
-			</select>
+			
 		</tr>
 	</tbody>
 </table>
