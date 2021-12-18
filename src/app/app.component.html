@@ -21,25 +21,3 @@
 	</tbody>
 </table>
 
-<h3>Astronauts Selected</h3>
-
-<table class="table table-striped table-hover">
-	<thead>
-		<tr>
-			<th>ID</th>
-			<th>Name</th>
-			<th>Job</th>
-			<th>YearJoined</th>
-			<th>Missions</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr *ngFor="let astronaut of astronautsSelected" class="clickable">
-			<td (click)="deselectAstronaut(astronaut)">{{astronaut.id}}</td>
-			<td (click)="deselectAstronaut(astronaut)">{{astronaut.name}}</td>
-			<td (click)="deselectAstronaut(astronaut)">{{astronaut.job}}</td>
-			<td (click)="deselectAstronaut(astronaut)">{{astronaut.year_joined}}</td>
-			
-		</tr>
-	</tbody>
-</table>
